@@ -7,7 +7,7 @@ internal class Program
     private static void Main(string[] args)
     {
         Detective detective = new Detective();
-        detective.SearchCriminal();
+        detective.SearchCriminals();
     }
 }
 
@@ -36,24 +36,31 @@ public class Criminal
 
 public class Detective
 {
-    private List<Criminal> _criminals = new List<Criminal>
-    {
-        new Criminal("Виктор Семенович Петров", 182, 76, "русский", false),
-        new Criminal("Джеймс Роберт Маккензи", 175, 88, "американец", false),
-        new Criminal("Сергей Иванович Дубин", 169, 59, "русский", false),
-        new Criminal("Ларс Густав Йоханссон", 190, 102, "швед", true),
-        new Criminal("Рахим Али Бин Хамед", 178, 82, "араб", false),
-        new Criminal("Мариана Элизабет Веббер", 165, 54, "немец", false),
-        new Criminal("Карлос Энрике Де Силва", 172, 65, "бразилец", false),
-        new Criminal("Саори Такахаши", 158, 50, "японец", true)
-    };
+    private List<Criminal> _criminals;
 
-    public void SearchCriminal()
+    public Detective()
+    {
+        _criminals = new List<Criminal>
+        {
+            new Criminal("Виктор Семенович Петров", 182, 76, "русский", false),
+            new Criminal("Джеймс Роберт Маккензи", 175, 88, "американец", false),
+            new Criminal("Сергей Иванович Дубин", 169, 59, "русский", false),
+            new Criminal("Ларс Густав Йоханссон", 190, 102, "швед", true),
+            new Criminal("Рахим Али Бин Хамед", 178, 82, "араб", false),
+            new Criminal("Мариана Элизабет Веббер", 165, 54, "немец", false),
+            new Criminal("Карлос Энрике Де Силва", 172, 65, "бразилец", false),
+            new Criminal("Саори Такахаши", 158, 50, "японец", true)
+        };
+    }
+
+    public void SearchCriminals()
     {
         Console.WriteLine("Введите рост преступника: ");
+
         if(int.TryParse(Console.ReadLine(), out int inputHeight))
         {
             Console.WriteLine("Введите вес преступника: ");
+
             if(int.TryParse(Console.ReadLine(), out int inputWeight))
             {
                 Console.WriteLine("Введите национальность преступника: ");
